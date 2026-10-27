@@ -1,4 +1,4 @@
-# Arrakis
+# Waypoint
 
 A free companion app for the games you play. It installs on your phone or computer like a regular app and works offline. Tap the game name at the top to switch games; each game keeps its own progress.
 
@@ -48,3 +48,5 @@ No build step: serve the folder with any static server (for example `python3 -m 
 - `sw.js`: offline cache. Add new files to its list and bump its version.
 
 To add a game, copy `games/gowr.js`, change the `id`, `storageKey` and content, add a `<script>` tag for it in `index.html` before `js/app.js`, add it to `sw.js`, and optionally add a palette under `:root[data-game="<id>"]` in `index.html`.
+
+The app was called Arrakis when it only covered Dune, so the repository and the saved-progress keys still use that name. Renaming the repository on GitHub is optional and does not affect anyone's saved progress.

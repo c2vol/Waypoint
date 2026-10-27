@@ -62,7 +62,7 @@ const CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="
 function renderShell() {
   const root = document.documentElement;
   root.dataset.game = game.id;
-  document.title = game.title;
+  document.title = game.title + " · Waypoint";
   const tc = $('meta[name="theme-color"]'); if (tc) tc.content = game.themeColor;
   $("#brand").innerHTML = `<span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true">${game.mark}</svg></span><h1>${esc(game.title)}</h1>${GAMES.length > 1 ? CHEV : ""}`;
   $("#brand").setAttribute("aria-expanded", picking);
@@ -73,7 +73,7 @@ function renderShell() {
     `<button data-act="tab" data-k="${k}" ${state.tab === k ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true">${game.icons[k]}</svg>${n}</button>`).join("");
 }
 function renderPicker() {
-  return `<section class="card picker"><div class="label">Your games</div>` + GAMES.map(g =>
+  return `<section class="card picker"><div class="label">Waypoint · Your games</div>` + GAMES.map(g =>
     `<button class="gamerow" data-act="game" data-k="${g.id}" ${g === game ? 'aria-current="true"' : ""}>
       <span class="mark" style="background:${g.themeColor};color:#fff"><svg viewBox="0 0 24 24" aria-hidden="true">${g.mark}</svg></span>
       <span class="stitle"><b>${esc(g.name)}</b><span class="why">${esc(g.blurb)}</span></span>${g === game ? '<span class="pill now">Open</span>' : ""}</button>`).join("") + `</section>`;
