@@ -46,6 +46,7 @@ No build step: serve the folder with any static server (for example `python3 -m 
 - `games/<id>.js`: one file per game, with its data, tabs, views and actions.
 - `js/app.js`: game switcher, saving, sync and event routing. Loaded last.
 - `sw.js`: offline cache. Add new files to its list and bump its version.
+- `tests/smoke.cjs`: opens every game and tab in a headless browser and fails on errors. GitHub runs it on every pull request; to run it yourself, do `npm install --no-save playwright && npx playwright install chromium` once, then `node tests/smoke.cjs`.
 
 To add a game, copy `games/gowr.js`, change the `id`, `storageKey` and content, add a `<script>` tag for it in `index.html` before `js/app.js`, add it to `sw.js`, and optionally add a palette under `:root[data-game="<id>"]` in `index.html`.
 
