@@ -277,12 +277,13 @@ registerGame({
   // Kept from the single-game version so existing progress carries over.
   storageKey: "arrakis-roadmap-v1",
   syncDoc: "state",
-  mark: '<circle cx="12" cy="9.5" r="3.6"/><path d="M3 19c3-3.5 6-4.5 9-4.5s6 1 9 4.5"/>',
+  art: '<svg viewBox="0 0 64 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="art-dune" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f2357"/><stop offset="1" stop-color="#cf5d5c"/></linearGradient></defs><rect width="64" height="64" fill="url(#art-dune)"/><circle cx="32" cy="34" r="15" fill="#f6a96b"/><circle cx="32" cy="34" r="11" fill="#ffe2b0"/><path d="M0 44c10-5 20-3 30 0s22 3 34-2v22H0z" fill="#7a2a35"/><path d="M0 52c12-3 22 0 34 1s20-2 30-1v12H0z" fill="#4c1a2a"/><path d="M0 59c14-2 30 1 64-1v6H0z" fill="#2d1020"/></svg>',
   tabs: [["home","Home"],["craft","Craft"],["base","Base"],["rank","Rank"],["map","Maps"],["lib","Library"]],
   icons: ICON,
   defaults: () => ({ u: 0, tab: "home", recipe: 0, have: {}, solari: 7167, price: 5000,
     ingots: 125, stand: 1999, target: 10, perDay: 375, lib: "resources", confirm: "", notes: {}, dd: {}, ddSel: "", base: {}, plan: {}, pHave: {}, raw: true, craftMode: "recipes" }),
   header,
+  summary: () => { const dr = daysToReset(), info = rankInfo(Number(state.stand) || 0, Number(state.target), Number(state.perDay) || 1); return "Rank " + info.cur + ", weekly reset " + (dr === 0 ? "today" : "in " + dr + " day" + (dr === 1 ? "" : "s")); },
   views: { home: renderHome, craft: renderCraft, base: renderBase, rank: renderRank, map: renderMaps, lib: renderLib },
   inputActs: ["have", "price", "solari", "ingots", "stand", "target", "perDay", "pHave", "recipesel"],
   onClick, onChange, onInput

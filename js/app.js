@@ -58,13 +58,14 @@ function switchGame(id) {
 }
 
 /* ---------- shell ---------- */
+const LOGO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 10-7 10-7-10z" fill="#ffc24d"/><path d="M12 7.5l3.2 4.5-3.2 4.5-3.2-4.5z" fill="var(--bg)"/></svg>';
 const CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 function renderShell() {
   const root = document.documentElement;
   root.dataset.game = game.id;
   document.title = game.title + " · Waypoint";
   const tc = $('meta[name="theme-color"]'); if (tc) tc.content = game.themeColor;
-  $("#brand").innerHTML = `<span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true">${game.mark}</svg></span><h1>${esc(game.title)}</h1>${GAMES.length > 1 ? CHEV : ""}`;
+  $("#brand").innerHTML = `<span class="mark">${game.art}</span><span class="bt"><span class="app">${LOGO}Waypoint</span><h1>${esc(game.title)}</h1></span>${GAMES.length > 1 ? CHEV : ""}`;
   $("#brand").setAttribute("aria-expanded", picking);
   $("#sub").innerHTML = game.header();
   const tabs = $("#tabs");
@@ -72,11 +73,20 @@ function renderShell() {
   tabs.innerHTML = game.tabs.map(([k, n]) =>
     `<button data-act="tab" data-k="${k}" ${state.tab === k ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true">${game.icons[k]}</svg>${n}</button>`).join("");
 }
+// Another game's summary line needs that game's saved state, so borrow it briefly.
+function summaryOf(g) {
+  if (g === game) return g.summary();
+  const keep = state;
+  try { const s = localStorage.getItem(g.storageKey); state = Object.assign(g.defaults(), s ? JSON.parse(s) : {}); return g.summary(); }
+  catch (e) { return ""; }
+  finally { state = keep; }
+}
 function renderPicker() {
-  return `<section class="card picker"><div class="label">Waypoint · Your games</div>` + GAMES.map(g =>
-    `<button class="gamerow" data-act="game" data-k="${g.id}" ${g === game ? 'aria-current="true"' : ""}>
-      <span class="mark" style="background:${g.themeColor};color:#fff"><svg viewBox="0 0 24 24" aria-hidden="true">${g.mark}</svg></span>
-      <span class="stitle"><b>${esc(g.name)}</b><span class="why">${esc(g.blurb)}</span></span>${g === game ? '<span class="pill now">Open</span>' : ""}</button>`).join("") + `</section>`;
+  return `<section class="picker"><div class="label">Your games</div><div class="tiles">` + GAMES.map(g =>
+    `<button class="tile" data-act="game" data-k="${g.id}" ${g === game ? 'aria-current="true"' : ""}>
+      <span class="art">${g.art}</span>
+      <span class="tbody"><b>${esc(g.name)}</b><span class="sum">${esc(summaryOf(g))}</span><span class="why">${esc(g.blurb)}</span></span>
+      ${g === game ? '<span class="pill now">Playing</span>' : ""}</button>`).join("") + `</div></section>`;
 }
 function render() {
   if (!game.tabs.some(x => x[0] === state.tab)) state.tab = "home";

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151a33"/>
+      <stop offset="0.65" stop-color="#2c2f5c"/>
+      <stop offset="1" stop-color="#4a3f73"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffd27a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ffd27a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)"/>
+  <g fill="#e9e6ff">
+    <circle cx="96" cy="92" r="3"/><circle cx="410" cy="70" r="2.5"/><circle cx="440" cy="168" r="2"/>
+    <circle cx="66" cy="196" r="2"/><circle cx="168" cy="54" r="2"/><circle cx="352" cy="128" r="2"/>
+  </g>
+  <circle cx="256" cy="196" r="150" fill="url(#glow)"/>
+  <path d="M226 252 L286 252 L326 400 L186 400 Z" fill="url(#beam)"/>
+  <path d="M0 372 C80 342 150 352 230 368 C320 386 420 352 512 362 L512 512 L0 512 Z" fill="#3a2f5e"/>
+  <ellipse cx="256" cy="392" rx="74" ry="18" fill="none" stroke="#ffd27a" stroke-width="8" opacity="0.9"/>
+  <path d="M0 418 C110 396 190 420 280 428 C370 436 440 410 512 414 L512 512 L0 512 Z" fill="#251f45"/>
+  <path d="M0 462 C120 446 220 470 330 466 C420 462 470 452 512 456 L512 512 L0 512 Z" fill="#17142e"/>
+  <path d="M256 96 L330 196 L256 296 L182 196 Z" fill="#ffc24d"/>
+  <path d="M256 96 L330 196 L256 196 Z" fill="#ffe2a0"/>
+  <path d="M256 296 L330 196 L256 196 Z" fill="#f2a93a"/>
+  <path d="M256 296 L182 196 L256 196 Z" fill="#e08f25"/>
+  <path d="M256 150 L290 196 L256 242 L222 196 Z" fill="#2c2f5c"/>
+</svg>

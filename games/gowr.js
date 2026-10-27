@@ -189,11 +189,12 @@ registerGame({
   themeColor: "#2a6496",
   storageKey: "arrakis-gowr-v1",
   syncDoc: "state-gowr",
-  mark: '<path d="M6 20L18 4M14 4h4v4M5 10c2 0 4 2 4 4s-2 4-4 4"/>',
+  art: '<svg viewBox="0 0 64 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="art-gowr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f2336"/><stop offset="1" stop-color="#4a82b0"/></linearGradient></defs><rect width="64" height="64" fill="url(#art-gowr)"/><path d="M-4 38C14 24 40 22 70 30" fill="none" stroke="#e05a4f" stroke-width="3" opacity=".7"/><circle cx="46" cy="16" r="6" fill="#e8f2fb"/><path d="M0 50l14-18 9 10 12-20 14 18 6-6 9 12v18H0z" fill="#8fb4d4"/><path d="M14 32l-4 5 4-1 3 3zM35 22l-5 8 5-2 4 4z" fill="#f4f9fd"/><path d="M0 56l18-12 12 8 14-10 20 14v8H0z" fill="#0b1824"/></svg>',
   tabs: [["home","Home"],["hunt","Collect"],["boss","Bosses"],["troph","Trophies"],["lib","Library"]],
   icons: ICON,
   defaults: () => ({ u: 0, tab: "home", troph: {}, bers: {}, col: {}, tf: "all", lib: "tips", notes: {}, confirm: "" }),
   header,
+  summary: () => { const c = counts(); return "Trophies " + c.t + "/" + DATA.trophies.length + ", collectibles " + c.pct + "%"; },
   views: { home: renderHome, hunt: renderHunt, boss: renderBoss, troph: renderTroph, lib: renderLib },
   inputActs: ["col"],
   onClick, onChange
