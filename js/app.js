@@ -1,4 +1,5 @@
 /* App shell: picks the game, loads and saves its state, draws tabs and header, routes events. Loaded last. */
+// Keeps the old Arrakis name so the last game you opened is remembered. Changing it resets that.
 const APP_KEY = "arrakis-app-v1";
 let game = GAMES[0], picking = false;
 

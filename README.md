@@ -50,4 +50,4 @@ No build step: serve the folder with any static server (for example `python3 -m 
 
 To add a game, copy `games/gowr.js`, change the `id`, `storageKey` and content, add a `<script>` tag for it in `index.html` before `js/app.js`, add it to `sw.js`, and optionally add a palette under `:root[data-game="<id>"]` in `index.html`.
 
-The app was called Arrakis when it only covered Dune, so the repository and the saved-progress keys still use that name. Renaming the repository on GitHub is optional and does not affect anyone's saved progress.
+The app was called Arrakis when it only covered Dune. The saved-progress keys (`arrakis-app-v1`, `arrakis-roadmap-v1`, `arrakis-gowr-v1` and so on) still use that name on purpose: changing a key makes the app look for progress under the new name and find nothing, so leave them as they are and give new games the same `arrakis-<id>-v1` pattern.
