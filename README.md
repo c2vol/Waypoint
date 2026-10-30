@@ -6,6 +6,7 @@ Games so far:
 
 - **Dune: Awakening**: crafting recipes and planner, Deep Desert map, faction rank calculator, base checklists and endgame reference.
 - **God of War Ragnarök** (PS5): trophy checklist with grades, collectible counters per type, Berserker tracker, tips and notes.
+- **Call of Duty: Modern Warfare 4**: camo tracker for all 33 launch weapons, from military camos up to Divergence and the Multiplayer and DMZ mastery camos.
 
 ## Dune: Awakening
 
@@ -24,6 +25,13 @@ Games so far:
 - **Trophies**: All 36, filterable, with totals per grade. The platinum ticks itself.
 - **Library**: Tips for the platinum and private notes.
 
+## Modern Warfare 4
+
+- **Home**: Gold, Platinum and Harmonic Break totals on the road to Divergence, the weapons you pinned with their next camo and challenge, and the class closest to unlocking Platinum.
+- **Camos**: Every weapon by class. Open one to count its military and special camos and tick Gold, Platinum, Harmonic Break and the mastery camos. Each tick shows the challenge. Pin a weapon to keep it on Home.
+- **Mastery**: Progress per class and totals for each Multiplayer and DMZ mastery camo.
+- **Guide**: How the camo ladder works, every class's Platinum and Harmonic Break challenge, prestige camos, and private notes.
+
 ## Install
 
 - **iPhone:** open the site in Safari, tap Share, then **Add to Home Screen**.
@@ -35,6 +43,7 @@ Games so far:
 - Dune recipe numbers come from the community Awakening Wiki as of October 2026 and may change with game updates. Items marked unconfirmed in the app are not verified.
 - The Deep Desert layout is for one week and does not update itself. Check an online companion map after each weekly reset.
 - Fan-made and unofficial. Not affiliated with Funcom or Legendary.
+- Modern Warfare 4 weapons and camo challenges come from Game8, GamesRadar and Codmunity in the week after launch (October 2026) and may change with patches. The in-game camo screen is the final word.
 - God of War Ragnarök totals come from the PowerPyx 100% guide and trophy list. The in-game realm map is the final word.
 
 ## Code layout
