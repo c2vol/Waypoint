@@ -65,6 +65,19 @@ const check = (ok, msg) => { if (!ok) failures.push(msg); console.log((ok ? "ok 
   await page.click("#brand"); await page.click("[data-act=game][data-k=dune]");
   check(await page.$eval('[data-act=btask][data-g="0"][data-i="0"]', e => e.getAttribute("aria-pressed")) === "true", "Dune checklist tick survives switching games");
 
+  // Modern Warfare 4: a Gold tick fills in the earlier camos and survives a reload; a pin shows on Home.
+  await page.click("#brand"); await page.click("[data-act=game][data-k=mw4]");
+  await page.click("[data-act=tab][data-k=guns]");
+  await page.click('[data-act=wopen][data-i="0"]');
+  await page.click('[data-act=rung][data-f=t][data-i="0"][data-k="1"]');
+  await page.click('[data-act=pin][data-i="0"]');
+  await page.reload();
+  await page.click('[data-act=tab][data-k=guns]');
+  check(await page.$eval('[data-act=rung][data-f=t][data-i="0"][data-k="1"]', e => e.getAttribute("aria-pressed")) === "true", "MW4 Gold tick survives reload");
+  check(await page.$eval('[data-act=cnum][data-f=s][data-i="0"]', e => e.value) === "3", "MW4 Gold fills in the special camos");
+  await page.click("[data-act=tab][data-k=home]");
+  check(await page.$('[data-act=goto][data-i="0"]') !== null, "MW4 pinned weapon shows on Home");
+
   check(errors.length === 0, "no page errors" + (errors.length ? ": " + errors.join(" | ") : ""));
   await browser.close();
   server.close();
